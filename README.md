@@ -1,9 +1,8 @@
 payments
 ========
 
-[![Build Status](https://travis-ci.org/asm-products/payments.svg)](https://travis-ci.org/asm-products/payments)
 
-Assembly payments: open and awesome
+LET´s CREATE payments: open and awesome
 
 ## Table of Contents
 
@@ -19,12 +18,12 @@ Assembly payments: open and awesome
 
 ### Quick Start, or What do I do now?
 
-If you're looking to implement Assembly Payments into your app, you're probably a core team member, right? If not, you're gonna need to be: Assembly Payments requires a core team member's authentication token to validate most requests.
+If you're looking to implement LET´s CREATE Payments into your app, you're probably a core team member, right? If not, you're gonna need to be: LET´s CREATE Payments requires a core team member's authentication token to validate most requests.
 
 With that out of the way, you're going to need to create a couple of plans. This is mostly like [creating a plan on Stripe](https://stripe.com/docs/api/node#create_plan), except you create your plan through the Payments API. For example:
 
 ```
-curl -X POST https://payments.assembly.com/products/{PRODUCT_ID}/plans \
+curl -X POST https://payments.let.de/products/{PRODUCT_ID}/plans \
   -H "content-type: application/json" \
   -H "Authorization: {PRODUCT_AUTHORIZATION_TOKEN}" \
   -d '{ "id": "product_plan", "name": "Product Plan",  "amount": 1000, "interval": "month" }'
@@ -42,7 +41,7 @@ You should provide _at least_ all of the above information in the request body, 
 You need to create a [Stripe Customer](https://stripe.com/docs/api/node#customers) for each of your users, e.g.:
 
 ```
-curl -X POST https://payments.assembly.com/products/{PRODUCT_ID}/customers \
+curl -X POST https://payments.let.de/products/{PRODUCT_ID}/customers \
   -H "content-type: application/json" \
   -H "Authorization: {PRODUCT_AUTHORIZATION_TOKEN}" \
   -d '{ "email": "an_awesome_customer@yourapp.com" }'
@@ -55,7 +54,7 @@ It's worth spelling out explicitly that you can create plans and customers at an
 Finally, you're ready to create a subscription &mdash; this is how you get money:
 
 ```
-curl -X POST https://payments.assembly.com/products/{PRODUCT_ID}/customers/{CUSTOMER_ID}/subscriptions \
+curl -X POST https://payments.let.de/products/{PRODUCT_ID}/customers/{CUSTOMER_ID}/subscriptions \
   -H "content-type: application/json" \
   -H "Authorization: {PRODUCT_AUTHORIZATION_TOKEN}" \
   -d '{ "plan": "product_plan" }'
